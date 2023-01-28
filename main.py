@@ -1,5 +1,7 @@
-from NeuralNetwork import MLP
-from Value import Value
+
+from src import Value
+from src import MLP
+
 
 xs = [
     [2.0, 3.0, 1.0],

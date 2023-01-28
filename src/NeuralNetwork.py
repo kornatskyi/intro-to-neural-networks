@@ -1,8 +1,14 @@
 import random
+from .Value import Value
 
-from Value import Value
-
-class Neuron:
+class Module:
+    def zero_grad(self):
+        for p in self.parameters():
+            p.grad = 0
+    
+    def parameters(self):
+        return []
+class Neuron(Module):
     def __init__(self, nin):
             self.weights = [Value(random.uniform(-1, 1), label=f'w{i}') for i in range(nin)] 
             self.b = Value(random.uniform(-1, 1), label='b')
@@ -16,7 +22,7 @@ class Neuron:
     def parameters(self):
         return self.weights + [self.b]
     
-class Layer:
+class Layer(Module):
 #     nin - number of inputs
 #     nout - number of outputs
     def __init__(self, nin:int, nout: int):
@@ -29,7 +35,7 @@ class Layer:
     def parameters(self):
         return [param for neuron in self.neurons for param in neuron.parameters()] 
 
-class MLP:
+class MLP(Module):
     #     nin - number of inputs
     #     nouts - number of outputs(layer size) on each level
     def __init__(self, nin: int, nouts: list[int]):
