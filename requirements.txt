@@ -17,4 +17,4 @@ scikit-learn
 scipy
 seaborn
 shap
-tensorflow
+tensorflow[and-cuda]

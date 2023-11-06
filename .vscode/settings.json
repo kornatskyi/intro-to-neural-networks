@@ -6,5 +6,8 @@
     "python.testing.pytestEnabled": true,
     "python.analysis.extraPaths": [
         "./src"
+    ],
+    "cSpell.words": [
+        "Grossentropy"
     ]
 }
