@@ -18,3 +18,4 @@ scipy
 seaborn
 shap
 tensorflow[and-cuda]
+torch
