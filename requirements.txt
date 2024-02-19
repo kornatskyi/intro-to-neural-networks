@@ -19,3 +19,4 @@ seaborn
 shap
 tensorflow[and-cuda]
 torch
+pytest

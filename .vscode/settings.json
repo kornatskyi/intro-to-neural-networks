@@ -9,5 +9,8 @@
     ],
     "cSpell.words": [
         "Grossentropy"
-    ]
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+      }
 }
