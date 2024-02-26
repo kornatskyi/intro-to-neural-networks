@@ -24,13 +24,12 @@ class Neuron(Module):
     def __call__(self, xs: list[Value]):
         weightsAndXs = zip(self.weights, xs)
         act = sum((wi * xi for wi, xi in weightsAndXs), self.b)
-        match self.activationFunction:
-            case "ReLU":
-                return act.relu()
-            case "tanh":
-                return act.tanh()
-            case _:
-                return act  # if layer is linear
+        if self.activationFunction == "ReLU":
+            return act.relu()
+        elif self.activationFunction == "tanh":
+            return act.tanh()
+        else:
+            return act  # if layer is linear
 
     def parameters(self):
         return self.weights + [self.b]
