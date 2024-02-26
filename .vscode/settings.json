@@ -5,10 +5,12 @@
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
     "python.analysis.extraPaths": [
-        "./src"
+        "./src",
+        "./submodules"
     ],
     "cSpell.words": [
-        "Grossentropy"
+        "Grossentropy",
+        "micrograd"
     ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
