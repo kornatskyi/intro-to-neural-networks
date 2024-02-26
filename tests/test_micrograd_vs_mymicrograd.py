@@ -1,3 +1,5 @@
+# !IMPORTANT: Make sure to install micrograd from submodule/micrograd before running these tests
+
 import sys
 
 from micrograd.nn import MLP
