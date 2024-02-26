@@ -72,7 +72,7 @@ class Value:
         out._backward = _backward
         return out
 
-    def new_backward(self):
+    def backward(self):
         visited = set()
         topo = []
         stack = [self]
@@ -98,7 +98,7 @@ class Value:
         for node in reversed(topo):
             node._backward()
 
-    def backward(self):
+    def old_backward(self):
         topo = []
         visited = set()
 
