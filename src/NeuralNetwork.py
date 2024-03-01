@@ -14,19 +14,19 @@ class Module:
 
 class Neuron(Module):
     def __init__(
-        self, nin, nonlin=True, activationFunction: Literal["ReLU", "tanh"] = "ReLU"
+        self, nin, nonlin=True, act_func: Literal["ReLU", "tanh"] = "ReLU"
     ):
         self.weights = [Value(random.uniform(-1, 1), label=f"w{i}") for i in range(nin)]
         self.b = Value(0)
         self.nonlin = nonlin
-        self.activationFunction = activationFunction if nonlin == True else ""
+        self.act_func = act_func if nonlin == True else ""
 
     def __call__(self, xs: list[Value]):
         weightsAndXs = zip(self.weights, xs)
         act = sum((wi * xi for wi, xi in weightsAndXs), self.b)
-        if self.activationFunction == "ReLU":
+        if self.act_func == "ReLU":
             return act.relu()
-        elif self.activationFunction == "tanh":
+        elif self.act_func == "tanh":
             return act.tanh()
         else:
             return act  # if layer is linear
@@ -52,10 +52,10 @@ class Layer(Module):
 class MLP(Module):
     #     nin - number of inputs
     #     nouts - number of outputs(layer size) on each level
-    def __init__(self, nin, nouts):
+    def __init__(self, nin, nouts, **kwargs):
         sz = [nin] + nouts
         self.layers = [
-            Layer(sz[i], sz[i + 1], nonlin=i != len(nouts) - 1)
+            Layer(sz[i], sz[i + 1], nonlin=i != len(nouts) - 1, **kwargs)
             for i in range(len(nouts))
         ]
 
