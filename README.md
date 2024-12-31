@@ -15,3 +15,4 @@ See usage example in `Train_model_on_iris_data.ipynb` file.
 3. Open and run the Jupyter notebooks to explore the neural network examples.
 4. Check the source code in the `src` folder to learn more about the implementation details.
 5. Run the tests in the `tests` folder to ensure everything is working correctly.
+6. If you want to pull micrograd submodule repo to test example against it run `git submodule update --init --recursive`
